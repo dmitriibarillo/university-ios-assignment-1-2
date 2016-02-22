@@ -1,4 +1,4 @@
-#import <Foundation/Foundation.h>
+#import "ViewController.h"
 #import "Student.h"
 #import "Professor.h"
 #import "Group.h"
@@ -6,10 +6,17 @@
 #import "HeadOfDepartment.h"
 #import "DepartmentController.h"
 
-int main(int argc, const char * argv[]) {
-    @autoreleasepool {
-        
-        NSArray<Student *> *students =
+
+@interface ViewController ()
+
+@end
+
+@implementation ViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view, typically from a nib.
+    NSArray<Student *> *students =
         @[
           [[Student alloc] initWithFirstName:@"Jack" lastName:@"Smith" age:18],
           [[Student alloc] initWithFirstName:@"Oliver" lastName:@"Johnson" age:20],
@@ -62,7 +69,7 @@ int main(int argc, const char * argv[]) {
           [[Group alloc] initWithTitle:@"1012"]
           ];
         
-        [[groups objectAtIndex:0] addStudent:[students objectAtIndex:0]];
+        //[[groups objectAtIndex:0] addStudent:[students objectAtIndex:0]];
         //[[departments objectAtIndex:0] addGroup:[groups objectAtIndex:0]];
         //[[departments objectAtIndex:0] addGroup:[groups objectAtIndex:1]];
         //[[departments objectAtIndex:1] addGroup:[groups objectAtIndex:2]];
@@ -91,7 +98,11 @@ int main(int argc, const char * argv[]) {
          */
         
         NSLog(@"URA");
-        
-    }
-    return 0;
 }
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+@end
