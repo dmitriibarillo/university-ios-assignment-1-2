@@ -12,7 +12,7 @@
 {
     self = [super initWithFirstName:headOfDepartment.firstName lastName:headOfDepartment.lastName age:headOfDepartment.age];
     if (self) {
-        self.subordinates = [NSArray array];
+        _subordinates = [NSArray array];
     }
     
     return self;

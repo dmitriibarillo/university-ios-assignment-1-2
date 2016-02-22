@@ -13,8 +13,8 @@
 {
     self = [super initWithFirstName:firstName lastName:lastName age:age];
     if (self) {
-        self.salary = salary;
-        self.students = [NSArray array];
+        _salary = salary;
+        _students = [NSArray array];
     }
     
     return self;

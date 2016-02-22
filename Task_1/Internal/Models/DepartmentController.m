@@ -13,7 +13,7 @@
     static DepartmentController *instance = nil;
     
     @synchronized(self) {
-        if (!self) {
+        if (instance == nil) {
             instance = [[DepartmentController alloc] init];
         }
     }
@@ -25,7 +25,7 @@
 {
     self = [super init];
     if (self) {
-        self.departments = [NSArray array];
+        _departments = [NSArray array];
     }
     
     return self;

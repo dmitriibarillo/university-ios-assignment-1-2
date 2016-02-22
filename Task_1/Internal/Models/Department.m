@@ -17,10 +17,10 @@
 {
     self = [super init];
     if (self) {
-        self.title = title;
-        self.headOfDepartment = headOfDepartment;
-        self.professors = [NSArray array];
-        self.groups = [NSArray array];
+        _title = title;
+        _headOfDepartment = headOfDepartment;
+        _professors = [NSArray array];
+        _groups = [NSArray array];
     }
     
     return self;
@@ -40,7 +40,7 @@
 
 - (float)averageScore
 {
-    return self.averageScore;
+    return _averageScore;
 }
 
 - (void)updateAverageScore
@@ -68,7 +68,7 @@
 
 -(NSString *)description {
     NSMutableString *description = [NSMutableString stringWithFormat : @"Department %@ \n", self.title];
-    [description appendFormat : @"Head of department : %@ \n", self.headOfDepartment];
+    [description appendFormat : @"%@ \n", self.headOfDepartment];
     
     [description appendString: @"Head of department subordinates :  \n"];
     

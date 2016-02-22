@@ -17,8 +17,8 @@
     self = [super init];
     if (self) {
         _title = title;
-        self.students = [NSArray array];
-        self.observers = [[NSMutableSet alloc] init];
+        _students = [NSArray array];
+        _observers = [[NSMutableSet alloc] init];
     }
     
     return self;
@@ -34,7 +34,7 @@
 
 - (float)averageScore
 {
-    return self.averageScore;
+    return _averageScore;
 }
 
 - (void)updateAverageScore

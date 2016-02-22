@@ -2,8 +2,8 @@
 
 @interface Human : NSObject
 
-@property (nonatomic, copy, readonly) NSString *firstName;
-@property (nonatomic, copy, readonly) NSString *lastName;
+@property (nonatomic, readonly) NSString *firstName;
+@property (nonatomic, readonly) NSString *lastName;
 @property (nonatomic) int age;
 
 - (instancetype)initWithFirstName:(NSString *)firstName lastName:(NSString *)lastName age:(int)age;

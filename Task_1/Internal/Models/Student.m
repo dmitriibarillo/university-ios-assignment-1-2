@@ -5,7 +5,6 @@
 
 @property (nonatomic, readwrite) NSArray *marks;
 @property (nonatomic, readwrite) NSMutableSet *observers;
-@property (nonatomic, readwrite) float averageScore;
 
 @end
 
@@ -16,8 +15,8 @@
 {
     self = [super initWithFirstName:firstName lastName:lastName age:age];
     if (self) {
-        self.marks = [NSArray array];
-        self.observers = [[NSMutableSet alloc] init];
+        _marks = [NSArray array];
+        _observers = [[NSMutableSet alloc] init];
     }
     
     return self;
@@ -33,7 +32,7 @@
 
 - (float)averageScore
 {
-    return self.averageScore;
+    return _averageScore;
 }
 
 - (void)updateAverageScore
