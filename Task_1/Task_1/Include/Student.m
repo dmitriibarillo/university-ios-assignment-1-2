@@ -1,8 +1,11 @@
 #import "Student.h"
+#import "Observer.h"
 
 @interface Student ()
 
 @property (nonatomic, readwrite) NSArray *marks;
+@property (nonatomic, readwrite) NSMutableSet *observers;
+@property (nonatomic, readwrite) float averageScore;
 
 @end
 
@@ -13,7 +16,8 @@
 {
     self = [super initWithFirstName:firstName lastName:lastName age:age];
     if (self) {
-        _marks = [NSArray array];
+        self.marks = [NSArray array];
+        self.observers = [[NSMutableSet alloc] init];
     }
     
     return self;
@@ -23,6 +27,13 @@
 {
     self.marks = [self.marks arrayByAddingObject:mark];
     [self updateAverageScore];
+    
+    [self notifyAll];
+}
+
+- (float)averageScore
+{
+    return self.averageScore;
 }
 
 - (void)updateAverageScore
@@ -41,6 +52,23 @@
     float averageScore = ( countOfElements > 0) ? (sum / countOfElements) : 0;
     
     return averageScore;
+}
+
+- (void)addObserver:(id<Observer>)observer
+{
+    [self.observers addObject:observer];
+}
+
+- (void)removeObserver:(id<Observer>)observer
+{
+    [self.observers removeObject:observer];
+}
+
+- (void)notifyAll
+{
+    for (id<Observer> observer in self.observers) {
+        [observer changeScore:self];
+    }
 }
 
 - (NSString *)description

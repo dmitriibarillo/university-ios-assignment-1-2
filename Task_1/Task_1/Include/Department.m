@@ -1,9 +1,11 @@
 #import "Department.h"
 #import "Professor.h"
 #import "Group.h"
+#import "Observer.h"
 
 @interface Department ()
 
+@property (nonatomic, readwrite) float averageScore;
 @property (nonatomic, readwrite) NSArray *professors;
 @property (nonatomic, readwrite) NSArray *groups;
 
@@ -31,6 +33,38 @@
 
 -(void)addGroup:(Group *)group {
     self.groups = [self.groups arrayByAddingObject:group];
+    [group addObserver:self];
+    
+    [self updateAverageScore];
+}
+
+- (float)averageScore
+{
+    return self.averageScore;
+}
+
+- (void)updateAverageScore
+{
+    self.averageScore = [self calculateAverageScore];
+}
+
+- (float)calculateAverageScore
+{
+    float sum = 0;
+    for (Group *group in self.groups) {
+        sum += group.averageScore;
+        
+    }
+    
+    unsigned long countOfElements = [self.groups count];
+    float averageScore = ( countOfElements > 0) ? (sum / countOfElements) : 0;
+    
+    return averageScore;
+}
+
+- (void)changeScore:(id<Observable>)observable
+{
+    [self updateAverageScore];
 }
 
 -(NSString *)description {
@@ -52,7 +86,7 @@
     [description appendString: @"Groups in the department : \n"];
     
     for (Group *group in self.groups) {
-        [description appendFormat : @"\t%@\n", [group description]];
+        [description appendFormat : @"\t%@\n", [	group description]];
     }
     
     
