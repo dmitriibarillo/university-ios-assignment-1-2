@@ -53,7 +53,6 @@
     float sum = 0;
     for (Group *group in self.groups) {
         sum += group.averageScore;
-        
     }
     
     unsigned long countOfElements = [self.groups count];
@@ -88,7 +87,6 @@
     for (Group *group in self.groups) {
         [description appendFormat : @"\t%@\n", [	group description]];
     }
-    
     
     return description;
 }

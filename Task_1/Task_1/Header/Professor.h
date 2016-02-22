@@ -8,6 +8,8 @@
 @property (nonatomic) float salary;
 @property (nonatomic, readonly) NSArray *students;
 
-- (void)addStudent : (Student *)student;
+- (instancetype)initWithFirstName:(NSString *)firstName lastName:(NSString *)lastName age:(int)age salary:(float)salary;
+
+- (void)addStudent:(Student *)student;
 
 @end

@@ -7,7 +7,9 @@
 @interface HeadOfDepartment : Professor
  
 @property (nonatomic, readonly) NSArray *subordinates;
- 
+
+- (instancetype)initWithHeadOfDepartment:(Professor *)headOfDepartment;
+
 - (void)addSubordinates:(Professor *)professor;
 
 @end

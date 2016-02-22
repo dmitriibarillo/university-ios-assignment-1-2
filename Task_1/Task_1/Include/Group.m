@@ -16,7 +16,7 @@
 {
     self = [super init];
     if (self) {
-        self.title = title;
+        _title = title;
         self.students = [NSArray array];
         self.observers = [[NSMutableSet alloc] init];
     }
@@ -27,7 +27,7 @@
 - (void)addStudent:(Student *)student
 {
     self.students = [self.students arrayByAddingObject:student];
-    [self addObserver:self];
+    [student addObserver:self];
     
     [self updateAverageScore];
 }
@@ -40,6 +40,7 @@
 - (void)updateAverageScore
 {
     self.averageScore = [self calculateAverageScore];
+    [self changeScore:self];
 }
 
 - (float)calculateAverageScore
@@ -74,10 +75,10 @@
 
 - (void)changeScore:(id<Observable>)observable
 {
-    [self updateAverageScore];
+    [self notifyAll];
 }
 
--(NSString *)description
+- (NSString *)description
 {
     NSMutableString *description = [NSMutableString stringWithFormat : @"Group %@ \n", self.title];
     [description appendFormat : @"Students in the group \n"];

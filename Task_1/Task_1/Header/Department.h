@@ -14,6 +14,8 @@
 @property (nonatomic, readonly) NSArray *professors;
 @property (nonatomic, readonly) NSArray *groups;
 
+- (instancetype)initWithTitle:(NSString *)title headOfDepartment:(HeadOfDepartment *)headOfDepartment;
+
 - (void)addProfessor:(Professor *)professor;
 
 - (void)addGroup:(Group *)group;
