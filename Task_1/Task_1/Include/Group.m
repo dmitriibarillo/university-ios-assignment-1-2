@@ -32,12 +32,12 @@
     [self updateAverageScore];
 }
 
-- (void)averageScore
+- (float)averageScore
 {
     return self.averageScore;
 }
 
-- (void)updateAverageScore()
+- (void)updateAverageScore
 {
     self.averageScore = [self calculateAverageScore];
 }
@@ -46,12 +46,12 @@
 {
     float sum = 0;
     for (Student *student in self.students) {
-        sum += student.averageScoreaverageScore;
+        sum += student.averageScore;
     }
     
     unsigned long countOfElements = [self.students count];
     float averageScore = ( countOfElements > 0) ? (sum / countOfElements) : 0;
-
+    
     return averageScore;
 }
 
