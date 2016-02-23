@@ -1,11 +1,11 @@
 #import "Department.h"
 #import "Professor.h"
 #import "Group.h"
-#import "Observer.h"
 
 @interface Department ()
 
 @property (nonatomic, readwrite) float averageScore;
+@property (nonatomic, readwrite) Professor *headOfDepartment;
 @property (nonatomic, readwrite) NSArray *professors;
 @property (nonatomic, readwrite) NSArray *groups;
 
@@ -13,12 +13,11 @@
 
 @implementation Department
 
-- (instancetype)initWithTitle:(NSString *)title headOfDepartment:(HeadOfDepartment *)headOfDepartment
+- (instancetype)initWithTitle:(NSString *)title
 {
     self = [super init];
     if (self) {
         _title = title;
-        _headOfDepartment = headOfDepartment;
         _professors = [NSArray array];
         _groups = [NSArray array];
     }
@@ -26,26 +25,46 @@
     return self;
 }
 
-- (void)addProfessor:(Professor *)professor
+- (void)setMaster:(id<ParticipantOfEducationProcess>)master
 {
-    self.professors = [self.professors arrayByAddingObject:professor];
+    if ([master isKindOfClass:[Professor class]]) {
+        _headOfDepartment = (Professor *)master;
+    }
 }
 
--(void)addGroup:(Group *)group {
-    self.groups = [self.groups arrayByAddingObject:group];
-    [group addObserver:self];
+- (void)addSlave:(id<ParticipantOfEducationProcess>)slave
+{
+    if ([slave isKindOfClass:[Professor class]]) {
+        self.professors = [self.professors arrayByAddingObject:slave];
+    }
     
-    [self updateAverageScore];
+    if ([slave isKindOfClass:[Group class]]) {
+        self.groups = [self.groups arrayByAddingObject:slave];
+        
+        [self updateAverageScore];
+    }
 }
 
-- (float)averageScore
+- (void)removeSlave:(id<ParticipantOfEducationProcess>)slave
 {
-    return _averageScore;
+    if ([slave isKindOfClass:[Professor class]]) {
+        NSMutableArray *temp = [NSMutableArray arrayWithArray:_professors];
+        [temp removeObject:slave];
+        _professors = [NSArray arrayWithArray:temp];
+    }
+    
+    if ([slave isKindOfClass:[Group class]]) {
+        NSMutableArray *temp = [NSMutableArray arrayWithArray:_groups];
+        [temp removeObject:slave];
+        _groups = [NSArray arrayWithArray:temp];
+        
+        [self updateAverageScore];
+    }
 }
 
 - (void)updateAverageScore
 {
-    self.averageScore = [self calculateAverageScore];
+    _averageScore = [self calculateAverageScore];
 }
 
 - (float)calculateAverageScore
@@ -61,14 +80,11 @@
     return averageScore;
 }
 
-- (void)changeScore:(id<Observable>)observable
-{
-    [self updateAverageScore];
-}
+
 
 -(NSString *)description {
     NSMutableString *description = [NSMutableString stringWithFormat : @"Department %@ \n", self.title];
-    [description appendFormat : @"%@ \n", self.headOfDepartment];
+    [description appendFormat : @"Head of department : %@ %@\n", self.headOfDepartment.firstName, self.headOfDepartment.lastName];
     
     [description appendString: @"Head of department subordinates :  \n"];
     

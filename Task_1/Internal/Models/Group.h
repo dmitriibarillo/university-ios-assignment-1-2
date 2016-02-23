@@ -1,17 +1,15 @@
 #import <Foundation/Foundation.h>
-#import "AveregaScoreProtocol.h"
-#import "Observer.h"
-#import "Observable.h"
+#import "AverageScoreProtocol.h"
+#import "ParticipantOfEducationProcess.h"
 
-@class Student;
+@class Department;
 
-@interface Group : NSObject <AveregaScoreProtocol, Observer, Observable>
+@interface Group : NSObject <AveregaScoreProtocol, ParticipantOfEducationProcess>
 
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, readonly) NSArray *students;
+@property (nonatomic, readonly) Department *department;
 
 - (instancetype)initWithTitle:(NSString *)title;
-
-- (void)addStudent:(Student *)student;
 
 @end

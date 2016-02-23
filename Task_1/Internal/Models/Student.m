@@ -1,13 +1,11 @@
 #import "Student.h"
-#import "Observer.h"
+#import "Group.h"
 
 @interface Student ()
 
 @property (nonatomic, readwrite) NSArray *marks;
-@property (nonatomic, readwrite) NSMutableSet *observers;
 
 @end
-
 
 @implementation Student
 
@@ -16,28 +14,27 @@
     self = [super initWithFirstName:firstName lastName:lastName age:age];
     if (self) {
         _marks = [NSArray array];
-        _observers = [[NSMutableSet alloc] init];
     }
     
     return self;
+}
+
+- (void)setMaster:(id<ParticipantOfEducationProcess>)master {
+    if ([master isKindOfClass:[Group class]]) {
+        _group = (Group *)master;
+    }
 }
 
 - (void)addMark:(NSNumber *)mark
 {
     self.marks = [self.marks arrayByAddingObject:mark];
     [self updateAverageScore];
-    
-    [self notifyAll];
 }
-
-- (float)averageScore
-{
-    return _averageScore;
-}
-
+	
 - (void)updateAverageScore
 {
-    self.averageScore = [self calculateAverageScore];
+    _averageScore = [self calculateAverageScore];
+    [self.group updateAverageScore];
 }
 
 - (float)calculateAverageScore
@@ -51,23 +48,6 @@
     float averageScore = ( countOfElements > 0) ? (sum / countOfElements) : 0;
     
     return averageScore;
-}
-
-- (void)addObserver:(id<Observer>)observer
-{
-    [self.observers addObject:observer];
-}
-
-- (void)removeObserver:(id<Observer>)observer
-{
-    [self.observers removeObject:observer];
-}
-
-- (void)notifyAll
-{
-    for (id<Observer> observer in self.observers) {
-        [observer changeScore:self];
-    }
 }
 
 - (NSString *)description

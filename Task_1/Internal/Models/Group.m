@@ -1,11 +1,12 @@
 #import "Group.h"
 #import "Student.h"
-#import "Observer.h"
+#import "Department.h"
+
 
 @interface Group ()
 
+@property (weak, nonatomic, readwrite) Department *department;
 @property (nonatomic, readwrite) NSArray *students;
-@property (nonatomic, readwrite) NSMutableSet *observers;
 @property (nonatomic, readwrite) float averageScore;
 
 @end
@@ -18,18 +19,36 @@
     if (self) {
         _title = title;
         _students = [NSArray array];
-        _observers = [[NSMutableSet alloc] init];
     }
     
     return self;
 }
 
-- (void)addStudent:(Student *)student
+- (void)setMaster:(id<ParticipantOfEducationProcess>)master
 {
-    self.students = [self.students arrayByAddingObject:student];
-    [student addObserver:self];
-    
-    [self updateAverageScore];
+    if ([master isKindOfClass:[Department class]]) {
+        _department = (Department *)master;
+    }
+}
+
+- (void)addSlave:(id<ParticipantOfEducationProcess>)slave
+{
+    if ([slave isKindOfClass:[Student class]]) {
+        self.students = [self.students arrayByAddingObject:slave];
+        
+        [self updateAverageScore];
+    }
+}
+
+- (void)removeSlave:(id<ParticipantOfEducationProcess>)slave
+{
+    if ([slave isKindOfClass:[Student class]]) {
+        NSMutableArray *temp = [NSMutableArray arrayWithArray:_students];
+        [temp removeObject:slave];
+        _students = [NSArray arrayWithArray:temp];
+        
+        [self updateAverageScore];
+    }
 }
 
 - (float)averageScore
@@ -39,8 +58,8 @@
 
 - (void)updateAverageScore
 {
-    self.averageScore = [self calculateAverageScore];
-    [self changeScore:self];
+    _averageScore = [self calculateAverageScore];
+    [self.department updateAverageScore];
 }
 
 - (float)calculateAverageScore
@@ -54,28 +73,6 @@
     float averageScore = ( countOfElements > 0) ? (sum / countOfElements) : 0;
     
     return averageScore;
-}
-
-- (void)addObserver:(id<Observer>)observer
-{
-    [self.observers addObject:observer];
-}
-
-- (void)removeObserver:(id<Observer>)observer
-{
-    [self.observers removeObject:observer];
-}
-
-- (void)notifyAll
-{
-    for (id<Observer> observer in self.observers) {
-        [observer changeScore:self];
-    }
-}
-
-- (void)changeScore:(id<Observable>)observable
-{
-    [self notifyAll];
 }
 
 - (NSString *)description
