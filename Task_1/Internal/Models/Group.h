@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import "AverageScoreProtocol.h"
+#import "AveregaScoreProtocol.h"
 #import "ParticipantOfEducationProcess.h"
 
 @class Department;

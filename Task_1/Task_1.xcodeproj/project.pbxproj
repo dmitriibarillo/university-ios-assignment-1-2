@@ -14,12 +14,11 @@
 		32ECCF881C7B1F59008D74FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32ECCF821C7B1F59008D74FA /* LaunchScreen.storyboard */; };
 		32ECCF891C7B1F59008D74FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32ECCF841C7B1F59008D74FA /* Main.storyboard */; };
 		32ECCF9D1C7B22A5008D74FA /* Department.m in Sources */ = {isa = PBXBuildFile; fileRef = 32ECCF8E1C7B22A5008D74FA /* Department.m */; };
-		32ECCF9E1C7B22A5008D74FA /* DepartmentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32ECCF901C7B22A5008D74FA /* DepartmentController.m */; };
 		32ECCF9F1C7B22A5008D74FA /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 32ECCF921C7B22A5008D74FA /* Group.m */; };
-		32ECCFA01C7B22A5008D74FA /* HeadOfDepartment.m in Sources */ = {isa = PBXBuildFile; fileRef = 32ECCF941C7B22A5008D74FA /* HeadOfDepartment.m */; };
 		32ECCFA11C7B22A5008D74FA /* Human.m in Sources */ = {isa = PBXBuildFile; fileRef = 32ECCF961C7B22A5008D74FA /* Human.m */; };
 		32ECCFA21C7B22A5008D74FA /* Professor.m in Sources */ = {isa = PBXBuildFile; fileRef = 32ECCF9A1C7B22A5008D74FA /* Professor.m */; };
 		32ECCFA31C7B22A5008D74FA /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 32ECCF9C1C7B22A5008D74FA /* Student.m */; };
+		84D8048B1C7CB45A006D69AD /* University.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D8048A1C7CB45A006D69AD /* University.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,20 +35,17 @@
 		32ECCF8C1C7B22A5008D74FA /* AveregaScoreProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AveregaScoreProtocol.h; sourceTree = "<group>"; };
 		32ECCF8D1C7B22A5008D74FA /* Department.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Department.h; sourceTree = "<group>"; };
 		32ECCF8E1C7B22A5008D74FA /* Department.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Department.m; sourceTree = "<group>"; };
-		32ECCF8F1C7B22A5008D74FA /* DepartmentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DepartmentController.h; sourceTree = "<group>"; };
-		32ECCF901C7B22A5008D74FA /* DepartmentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DepartmentController.m; sourceTree = "<group>"; };
 		32ECCF911C7B22A5008D74FA /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
 		32ECCF921C7B22A5008D74FA /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
-		32ECCF931C7B22A5008D74FA /* HeadOfDepartment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeadOfDepartment.h; sourceTree = "<group>"; };
-		32ECCF941C7B22A5008D74FA /* HeadOfDepartment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeadOfDepartment.m; sourceTree = "<group>"; };
 		32ECCF951C7B22A5008D74FA /* Human.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Human.h; sourceTree = "<group>"; };
 		32ECCF961C7B22A5008D74FA /* Human.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Human.m; sourceTree = "<group>"; };
-		32ECCF971C7B22A5008D74FA /* Observable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Observable.h; sourceTree = "<group>"; };
-		32ECCF981C7B22A5008D74FA /* Observer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Observer.h; sourceTree = "<group>"; };
 		32ECCF991C7B22A5008D74FA /* Professor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Professor.h; sourceTree = "<group>"; };
 		32ECCF9A1C7B22A5008D74FA /* Professor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Professor.m; sourceTree = "<group>"; };
 		32ECCF9B1C7B22A5008D74FA /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
 		32ECCF9C1C7B22A5008D74FA /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
+		84D804881C7CB45A006D69AD /* ParticipantOfEducationProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticipantOfEducationProcess.h; sourceTree = "<group>"; };
+		84D804891C7CB45A006D69AD /* University.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = University.h; sourceTree = "<group>"; };
+		84D8048A1C7CB45A006D69AD /* University.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = University.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,19 +103,16 @@
 		32ECCF8B1C7B22A5008D74FA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				84D804881C7CB45A006D69AD /* ParticipantOfEducationProcess.h */,
+				84D804891C7CB45A006D69AD /* University.h */,
+				84D8048A1C7CB45A006D69AD /* University.m */,
 				32ECCF8C1C7B22A5008D74FA /* AveregaScoreProtocol.h */,
 				32ECCF8D1C7B22A5008D74FA /* Department.h */,
 				32ECCF8E1C7B22A5008D74FA /* Department.m */,
-				32ECCF8F1C7B22A5008D74FA /* DepartmentController.h */,
-				32ECCF901C7B22A5008D74FA /* DepartmentController.m */,
 				32ECCF911C7B22A5008D74FA /* Group.h */,
 				32ECCF921C7B22A5008D74FA /* Group.m */,
-				32ECCF931C7B22A5008D74FA /* HeadOfDepartment.h */,
-				32ECCF941C7B22A5008D74FA /* HeadOfDepartment.m */,
 				32ECCF951C7B22A5008D74FA /* Human.h */,
 				32ECCF961C7B22A5008D74FA /* Human.m */,
-				32ECCF971C7B22A5008D74FA /* Observable.h */,
-				32ECCF981C7B22A5008D74FA /* Observer.h */,
 				32ECCF991C7B22A5008D74FA /* Professor.h */,
 				32ECCF9A1C7B22A5008D74FA /* Professor.m */,
 				32ECCF9B1C7B22A5008D74FA /* Student.h */,
@@ -204,10 +197,9 @@
 				32ECCF6C1C7B1E09008D74FA /* AppDelegate.m in Sources */,
 				32ECCFA11C7B22A5008D74FA /* Human.m in Sources */,
 				32ECCF9F1C7B22A5008D74FA /* Group.m in Sources */,
-				32ECCFA01C7B22A5008D74FA /* HeadOfDepartment.m in Sources */,
 				32ECCFA31C7B22A5008D74FA /* Student.m in Sources */,
+				84D8048B1C7CB45A006D69AD /* University.m in Sources */,
 				32ECCF9D1C7B22A5008D74FA /* Department.m in Sources */,
-				32ECCF9E1C7B22A5008D74FA /* DepartmentController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +350,7 @@
 				32ECCF5F1C7B1D9D008D74FA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
